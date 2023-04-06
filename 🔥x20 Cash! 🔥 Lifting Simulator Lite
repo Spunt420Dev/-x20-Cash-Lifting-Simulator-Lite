@@ -1,0 +1,34 @@
+--MADE BY SPUNT#7815 DM ME IF YOU HAVE ANY QUESTIONS
+if game.PlaceId == 12606747401 then
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "Diverse HUB | 🔥x20 Cash! 🔥 Lifting Simulator Lite", HidePremium = false, IntroText = "Diverse HUB", SaveConfig = true, ConfigFolder = "Diverse HUB"})
+    
+    -- Values
+    _G.autoLift = true
+    _G.autoBuy = true
+    -- Functions
+    function autoLift()
+        while _G.autoLift == true do
+            game:GetService("ReplicatedStorage").RemoteEvents.ToolLift:FireServer()
+            wait(.000000000000000000000000000000000000000000000000000000000000000000000001)
+         end
+        end
+    -- Tabs
+    local FarmTab = Window:MakeTab({
+        Name = "Auto Farm",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+    
+
+    -- Toggles
+    FarmTab:AddToggle({
+        Name = "Auto Lift",
+        Default = false,
+        Callback = function(Value)
+            _G.autoLift = Value
+            autoLift()
+        end    
+    })
+    OrionLib:Init()
+    end
